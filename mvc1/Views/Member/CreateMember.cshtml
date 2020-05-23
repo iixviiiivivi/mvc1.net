@@ -1,0 +1,36 @@
+﻿@model mvc1.Models.member
+
+@{
+    ViewBag.Title = "Member:Create Member";
+}
+
+@section style{
+    <link rel="stylesheet" type="text/css" href="~/Styles/Member/MemberCommon.css" />
+    <link rel="stylesheet" type="text/css" href="~/Styles/Member/MemberCreate.css" />
+}
+
+<h3>Create Member</h3>
+
+<form action="~/Member/CreateMember" method="post">
+    <div>
+        <label>Name</label>
+        <input type="text" name="name" value=@(Model!=null?@Model.name:"")>
+        <p>@Html.ValidationMessageFor(m => m.name)</p>
+    </div>
+
+    <div>
+        <label>Username</label>
+        <input type="text" name="username" value=@(Model!=null?Model.username:"")>
+        <p>@Html.ValidationMessageFor(m => m.username)</p>
+    </div>
+
+    <div>
+        <label>Password</label>
+        <input type="text" name="password" value=@(Model!=null?Model.password:"")>
+        <p>@Html.ValidationMessageFor(m => m.password)</p>
+    </div>
+
+    <button type="submit">Register</button>
+</form>
+<br />
+<span style="color:red;">@ViewBag.Error</span>

@@ -1,0 +1,49 @@
+﻿#main {
+    padding: 20px;
+}
+
+    #main h3 {
+        color: mediumblue;
+        margin-bottom: 15px;
+    }
+
+    #main p {
+        margin-bottom: 15px;
+    }
+
+label {
+    display: inline-block;
+    width: 70px;
+    background-color: darkgray;
+    color: white;
+    margin-right: 8px;
+    margin-bottom: 5px;
+    padding: 1px 3px;
+    text-align: center;
+    border-radius: 3px;
+}
+
+input {
+    border: 1px solid lightgray;
+    height: 20px;
+    border-radius: 3px;
+}
+
+    input:focus {
+        outline: none;
+        border-color: darkgray;
+        box-shadow: 0 0 8px darkgray;
+    }
+
+button {
+    height: 25px;
+    width: 260px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+
+    button:focus {
+        outline: none;
+        border-color: darkgray;
+        box-shadow: 0 0 8px darkgray;
+    }

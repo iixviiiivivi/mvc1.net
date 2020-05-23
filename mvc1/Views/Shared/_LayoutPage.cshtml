@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/Styles/Layout.css" />
+    @RenderSection("style", false)
+</head>
+<body>
+    <div id="wrapper">
+        <header id="header">
+            <p>MVC Demo</p>
+            <nav>
+                <ul>
+                    <li class="btnNav" id="btnHome">@Html.ActionLink("Home", "Index", "Home")</li>
+                    @if (Session["member"] != null)
+                    {
+                        <li class="btnNav" id="btnMember">@Html.ActionLink("Member", "Index", "Member")</li>
+                    }
+                    @if (Session["member"] == null)
+                    {
+                        <li class="btnNav" id="btnLogIn">@Html.ActionLink("Log In", "LogIn", "Member")</li>
+                    }
+                    else
+                    {
+                        <li class="btnNav" id="btnLogIn">@Html.ActionLink("Log Out", "LogOut", "Member")</li>
+                    }
+
+                </ul>
+            </nav>
+        </header>
+
+        <div id="main">
+            @RenderBody()
+        </div>
+
+        <footer id="footer">
+            <p>&copy;.NetFrameWork MVC</p>
+        </footer>
+    </div>
+
+    @RenderSection("script", false)
+</body>
+</html>

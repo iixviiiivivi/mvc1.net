@@ -1,0 +1,38 @@
+﻿@model mvc1.Models.member
+
+@{
+    ViewBag.Title = "Member:Delete";
+}
+
+@section style{
+    <link rel="stylesheet" type="text/css" href="~/Styles/Member/MemberCommon.css" />
+    <link rel="stylesheet" type="text/css" href="~/Styles/Member/MemberUpdate.css" />
+}
+
+<h3>Member Delete</h3>
+
+<form action="~/Member/DeleteMember" method="post">
+    <div>
+        <label>ID</label>
+        <input type="text" name="id" value=@(Model!=null?Model.id.ToString():"")>
+    </div>
+    
+    <div>
+        <label>Name</label>
+        <input type="text" name="name" value=@(Model!=null?Model.name:"")>
+    </div>
+
+    <div>
+        <label>Username</label>
+        <input type="text" name="username" value=@(Model!=null?Model.username:"")>
+    </div>
+
+    <div>
+        <label>Password</label>
+        <input type="text" name="password" value=@(Model!=null?Model.password:"")>
+    </div>
+
+    <button type="submit" onclick="confirm('Delete member id:' + @Model.id + '?')">Delete</button>
+</form>
+<br />
+<span style="color:red;">@ViewBag.Error</span>

@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "LogIn";
+}
+
+@section style{
+    <link rel="stylesheet" type="text/css" href="~/Styles/Member/MemberCommon.css" />
+    <link rel="stylesheet" type="text/css" href="~/Styles/Member/MemberLogIn.css" />
+}
+
+<h3>LogIn</h3>
+
+<form action="~/Member/LogIn" method="post">
+    <div>
+        <label>Username</label>
+        <input type="text" name="username" />
+    </div>
+
+    <div>
+        <label>Password</label>
+        <input type="text" name="password" />
+    </div>
+
+    <button type="submit">Log In</button>
+</form>
+<br />
+<span style="color:red;">@ViewBag.Error</span>

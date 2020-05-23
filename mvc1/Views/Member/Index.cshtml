@@ -1,0 +1,46 @@
+﻿@model IEnumerable<member>
+@using mvc1.Models
+
+@{
+    ViewBag.Title = "Member:GetMembers";
+}
+
+@section style{
+    <link rel="stylesheet" type="text/css" href = "~/Styles/Member/MemberCommon.css" />
+    <link rel="stylesheet" type="text/css" href="~/Styles/Member/MemberIndex.css" />
+}
+
+<h3>Member Index</h3>
+
+<ul>
+    <li>@Html.ActionLink("Member CRUD", "GetMembers")</li>
+</ul>
+<br />
+
+<h4>Current Page: @ViewBag.Page</h4><br />
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Registration Date</th>
+    </tr>
+
+    @foreach (member m in Model)
+    {
+        <tr>
+            <td>@m.id</td>
+            <td>@m.name</td>
+            <td>@m.username</td>
+            <td>@m.password</td>
+            <td>@m.registerDate</td>
+        </tr>
+    }
+</table>
+<br />
+
+@for(int i=1; i <= Convert.ToInt32(ViewBag.TotalPages); i++)
+{
+    <span>@Html.ActionLink(i.ToString(), "Index", new { page = i })</span>
+}

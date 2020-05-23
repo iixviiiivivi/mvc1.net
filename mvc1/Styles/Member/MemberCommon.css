@@ -1,0 +1,19 @@
+﻿#btnMember {
+    background-color: white;
+}
+
+    #btnMember a {
+        color: #1D1D1F;
+        font-weight: 700
+    }
+
+
+@media (max-width: 600px) {
+    #btnMember {
+        background-color: #1D1D1F;
+    }
+
+        #btnMember a {
+            color: darkgoldenrod;
+        }
+}
