@@ -131,6 +131,7 @@
     <Compile Include="Models\member.cs">
       <DependentUpon>MemberModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\MemberConstraint.cs" />
     <Compile Include="Models\MemberModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -12,7 +12,7 @@ namespace mvc1.Controllers
     {
         private static readonly MemberDao memberDao = new MemberDao();
 
-        public ActionResult Index(int page=1)
+        public ActionResult Index(int page = 1)
         {
             List<member> members = memberDao.Pagination(page, 5);
             int totalPages = memberDao.TotalPages(5);
@@ -25,7 +25,7 @@ namespace mvc1.Controllers
         {
             if (Session["member"] is null)
                 return RedirectToAction("Index", "Home");
-            
+
             List<member> members = memberDao.FindAll();
             if (members.Count == 0)
                 return RedirectToAction("index");
@@ -44,7 +44,7 @@ namespace mvc1.Controllers
         {
             m.registerDate = DateTime.Now;
 
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
                 return View(m);
 
             bool flag = memberDao.FindByUsername(m.username);
@@ -55,7 +55,7 @@ namespace mvc1.Controllers
             }
 
             member member = memberDao.Save(m);
-            if(member is null)
+            if (member is null)
             {
                 ViewBag.Error = "Create member failed";
                 return View(m);
@@ -84,7 +84,7 @@ namespace mvc1.Controllers
             }
 
             member member = memberDao.FindOne(m.id);
-            if (member is null) 
+            if (member is null)
             {
                 ViewBag.Error = $"Member ID:{m.id} not found";
                 return View(m);
@@ -135,7 +135,7 @@ namespace mvc1.Controllers
         {
             return View();
         }
-        
+
         [HttpPost]
         public ActionResult LogIn(string username, string password)
         {
@@ -144,7 +144,7 @@ namespace mvc1.Controllers
                 Session["member"] = true;
                 return RedirectToAction("Index", "Home");
             }
-            else 
+            else
             {
                 ViewBag.Error = "Log in failed";
                 return View();

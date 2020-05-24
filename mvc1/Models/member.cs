@@ -16,18 +16,9 @@ namespace mvc1.Models
     public partial class member
     {
         public int id { get; set; }
-        [Required(ErrorMessage = "Name is required")]
-        [RegularExpression("^[a-zA-Z]{4,}$", ErrorMessage = "4 minimum english letter required")]
         public string name { get; set; }
-
-        [Required(ErrorMessage = "Username is requried")]
-        [RegularExpression(@"^\w{6,}$", ErrorMessage = "6 minimum english letters and digits including underline")]
         public string username { get; set; }
-
-        [Required(ErrorMessage = "password is required")]
-        [RegularExpression(@"^\w{6,}$", ErrorMessage = "6 minimum english letters and digits including underline")]
         public string password { get; set; }
-
         public Nullable<System.DateTime> registerDate { get; set; }
     }
 }
